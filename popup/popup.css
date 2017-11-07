@@ -1,0 +1,12 @@
+html, body {
+    width: 300px;
+    background-color: #4F4F4F;
+}
+
+input {
+    background-color: #1cb28d;
+    color: #242424;
+    font-weight: bold;
+    padding: 10px;
+    width: 90%;
+}
