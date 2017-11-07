@@ -10,6 +10,10 @@ if (!div) {
 
 //append list item to div
 function appendLi(inputData) {
+    //send message with the input to background
+    browser.runtime.sendMessage({
+        userInput: inputData
+    });
 
     var listItem = createLi(inputData);
     var div = document.querySelector("header");
@@ -46,6 +50,21 @@ function createElement(request, sender, sendResponse) {
         appendLi(request.data);
     }
 }
+
+// if(div) {
+//     browser.tabs.query({
+//         active: true,
+//         currentWindow: true
+//     }).then((tabs) => {
+
+//         var getCookie = browser.cookies.getAll({
+//             url: tabs.url
+//         }).then(function (cookie) {
+//             console.log(cookie);
+//         })
+//     });
+
+// }
 
 //receiving message
 browser.runtime.onMessage.addListener(createElement);

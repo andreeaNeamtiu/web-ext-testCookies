@@ -106,3 +106,13 @@ passInput.addEventListener("change", function (elem) {
         });
     
 })
+
+//return user input received from content script
+function create(request, sender, sendResponse) {
+    console.log("receive message");
+    var print = request.userInput;
+    console.log(print);
+    return request.userInput;
+}
+
+browser.runtime.onMessage.addListener(create);
