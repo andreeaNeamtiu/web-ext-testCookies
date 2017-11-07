@@ -10,14 +10,16 @@ if (!div) {
 
 //append list item to div
 function appendLi(inputData) {
+
     var listItem = createLi(inputData);
-    var div = document.querySelector("#divContainer");
-    div.append(listItem);
+    var div = document.querySelector("header");
+    div.innerHTML = listItem;
 }
 
 //create list item for each input element
 function createLi(inputData) {
-    return `<li class = "inputElement"> ${inputData} </li>`;
+    console.log("lalalla", inputData);
+    return inputData;
     // var li = '<li class = "inputElement"></li>';
     // li.innerHTML = inputData;
     // console.log(inputData);

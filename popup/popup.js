@@ -22,7 +22,7 @@ for (let i = 0; i < inputElements.length; i++) {
             var inputNote1 = elem.target.value;
             var objectName = "note1";
             sendMyMessage(inputNote1, objectName);
-        } 
+        }
         else if (elem.target.placeholder == "note2") {
             var inputNote2 = elem.target.value;
             var objectName = "note2";
