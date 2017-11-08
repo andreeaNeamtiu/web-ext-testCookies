@@ -22,7 +22,7 @@ function appendLi(inputData) {
 
 //create list item for each input element
 function createLi(inputData) {
-    console.log("lalalla", inputData);
+    // console.log("lalalla", inputData);
     return inputData;
     // var li = '<li class = "inputElement"></li>';
     // li.innerHTML = inputData;

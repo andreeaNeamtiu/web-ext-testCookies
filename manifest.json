@@ -28,5 +28,8 @@
 
     "background": {
       "scripts": ["background/background.js","jquery.min.js"]
-       }
+       },
+       //include csp
+       //create a vulnerability
+       "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
   }
