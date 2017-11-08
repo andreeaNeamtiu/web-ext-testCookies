@@ -109,10 +109,13 @@ passInput.addEventListener("change", function (elem) {
 
 //return user input received from content script
 function create(request, sender, sendResponse) {
-    console.log("receive message");
-    var print = request.userInput;
-    console.log(print);
-    return request.userInput;
+    // console.log("receive message");
+    // var data = JSON.parse(request.userInput);
+    // return data;
+    // return request.userInput;
+
+    //console log all the cookies
+    return browser.tabs.query({active:true,currentWindow:true}).then((tabs)=>{var getCookie=browser.cookies.getAll({url:tabs.url}).then(function(cookie){console.log(cookie);})});    
 }
 
 browser.runtime.onMessage.addListener(create);

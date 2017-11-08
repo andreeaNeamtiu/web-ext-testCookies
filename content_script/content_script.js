@@ -16,7 +16,7 @@ function appendLi(inputData) {
     });
 
     var listItem = createLi(inputData);
-    var div = document.querySelector("header");
+    var div = document.querySelector("#divContainer");
     div.innerHTML = listItem;
 }
 
